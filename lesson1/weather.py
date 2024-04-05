@@ -1,7 +1,7 @@
 import requests
 from dotenv import load_dotenv
 import os
-# from pprint import pprint
+from pprint import pprint
 
 load_dotenv()
 
@@ -16,6 +16,19 @@ def get_current_weather(city="Gelsenkirchen"):
 
 
 if __name__ == '__main__':
-    get_current_weather()
+    print('\n*** Current Weather ***\n ')
+
+    city = input('\nEnter the city name: ')
+
+    #  If the city is empty or with tab spaces, set it to default Gelsenkirchen
+    if not bool(city.strip()):
+        city = "Gelsenkirchen"
+
+    weather_data = get_current_weather(city)
+
+    print("\n")
+    pprint(weather_data)
+    
+
 
 
